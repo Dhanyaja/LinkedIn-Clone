@@ -1,6 +1,8 @@
-import firebase from 'firebase'
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, onSnapshot } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
     apiKey: "AIzaSyBt19Nq8up1lCj2d1XIy6jKUUnTxA8El54",
     authDomain: "linkedin-clone-d894a.firebaseapp.com",
@@ -11,8 +13,8 @@ const firebaseConfig = {
     measurementId: "G-PHEDLN3V09"
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-const db = firebaseApp.firestore();
-const auth = firebase.auth();
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
 
 export { db, auth };
